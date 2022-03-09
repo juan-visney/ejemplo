@@ -2,11 +2,12 @@ const express = require('express')
 const handlebars = require('express-handlebars')
 const path = require('path')
 const mysql = require('mysql')
-const bodyParser =require('body-parser')
+const bodyParser = require('body-parser')
+const {port} = require('./keys')
 
 const app = express()
 
-app.set('port', process.env.PORT || 3000)
+app.set('port', port)
 app.set('views', path.join(__dirname, 'views'))
 app.engine('.hbs', handlebars.engine({
     defaultLayout: "main",
@@ -21,6 +22,5 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 app.use(require('./routes/index'))
 
-app.listen(app.get('port'), () => {
-    console.log('Server on PORT ', app.get('port'))
-})
+app.listen(app.get('port'))
+console.log("Server on port: ", app.get('port'))
