@@ -12,7 +12,7 @@ pool.getConnection((err, conn) => {
         if(err.code === 'ER_CON_COUNT_ERROR'){
             console.error('DATABASE HAS TOO MANY CONNECTIONS')
         }
-        if(err.code === 'ECONREFUSED'){
+        if(err.code === 'ECONNREFUSED'){
             console.error('DATABASE CONNECTION WAS REFUSED')
         }
     }
