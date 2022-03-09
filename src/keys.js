@@ -1,3 +1,6 @@
+const env = require('dotenv')
+env.config()
+
 module.exports = {
     database: {
         host: process.env.DATABASE_PORT || 'localhost',
